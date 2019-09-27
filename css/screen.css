@@ -19,7 +19,26 @@
 \*------------------------------------*/
 
 :root {
-
+    --global-color-alpha-x-light: #3385FF4D;
+    --global-color-alpha-light: #3385FFBF;
+    --global-color-alpha-x: #4F95FF;
+    --global-color-alpha: #3385FF;
+    --global-color-alpha-dark: #2E77E6;
+    --global-color-alpha-x-dark: #1B4186;
+ 
+    --global-color-neutral-xxxxx-light:#FFFFFF;
+    --global-color-neutral-xxxx-light:#F5F6FA;
+    --global-color-neutral-xxx-light: #E2E3E7;
+    --global-color-neutral-xx-light: #CACCD4;
+    --global-color-neutral-x-light: #B5B6C0;
+    --global-color-neutral-light: #A0A1AD;
+    --global-color-neutral: #8B8C9A;
+    --global-color-neutral-dark: #757787;
+    --global-color-neutral-x-dark: #606274;
+    --global-color-neutral-xx-dark: #4B4C60;
+    --global-color-neutral-xxx-dark: #35374D;
+    --global-color-neutral-xxxx-dark: #2A2C43;
+    --global-color-neutral-xxxxx-dark: #20223A;
 }
 
 /* CSS variables here */
@@ -38,11 +57,11 @@ html {
     font-size: 16px;
     line-height: 1.5;
     font-family: "Inter Web", Helvetica, arial, sans-serif;
-    color:  #20223a;
+    color:  var(--global-color-neutral-xxxxx-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F5F6FA;
+    background-color: var(--global-color-neutral-xxxxx-light);
 }
 
 *,
@@ -202,6 +221,14 @@ input{
 .o-row {
     position: relative;
     padding: 24px 24px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.o-row--body {
+    
 }
 
 .o-row--login {
@@ -477,6 +504,47 @@ input{
     Card with box shadow
 */
 
+.c-card{
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 2px 4px rgba(0,0,0,.07);
+}
+
+.c-card__header,
+.c-card__footer{
+    text-align: center;
+}
+
+.c-card__header,
+.c-card__body,
+.c-card__footer{
+    padding: 24px;
+}
+
+.c-card__footer{
+    border-top: 1px solid #e2e3e7
+}
+
+.c-card__title{
+    font-size: 18px;
+}
+
+.c-card__body > *:last-child,
+.c-card__footer > *:last-child,
+.c-card__body > *:last-child >*:last-child,
+.c-card__footer > *:last-child > *:last-child{
+    margin-bottom: 0px; 
+}
+
+@media (min-width: 27em){
+    .c-card__body{
+        padding: 48px;
+    }
+
+    .c-card__title{
+        margin-bottom: 48px;   
+    }
+}
 /*
     Component: Forms
     ---
@@ -522,11 +590,19 @@ input{
 */
 
 .c-label {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    color: #606274;
+    padding-bottom: 8px;
+}
 
+.c-label--option{
+    margin-bottom: 0px;
+    padding: 0 0 0 8px;
 }
 
 /* If a input is focused within the form-field class change te color of the label */
-
 .c-form-field:focus-within .c-label {
 
 }
@@ -545,12 +621,11 @@ input{
     border: 1px solid #2E77E6;
     height: 48px;
     outline: none;
-    transition: all .1s ease-in-out;
+    transition: all .1s ease-out;
 }
 
 .c-button:hover {
-    background-color: #4F95FF;
-    box-shadow: 0 0 0 3px #3385FF4D;
+    background-color: var(--global-color-alpha-x-light);
 }
 
 .c-button:focus {
@@ -560,7 +635,7 @@ input{
 
 .c-button:active {
     background-color: #2E77E6;
-    box-shadow: 0 0 0 3px #3385FF4D; 
+    box-shadow: none;
 }
 
 .c-button--block {
@@ -652,7 +727,7 @@ input{
     Utility classes align text or components
 */
 
-.u-align-text-center {
+.u-text-align-center {
     text-align: center;
 }
 
